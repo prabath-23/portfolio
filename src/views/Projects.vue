@@ -126,48 +126,6 @@
 <script setup>
 import { computed, ref } from 'vue';
 
-const FALLBACK_PROJECTS = [
-  {
-    id: 1,
-    title: 'Spring Commerce',
-    category: 'Full Stack · Java',
-    description:
-      'A production-grade e-commerce platform built on Spring Boot with JPA, JWT auth, and a React storefront. Handles 10k+ daily transactions.',
-    tech: ['Spring Boot', 'React', 'PostgreSQL', 'Docker', 'Redis'],
-    year: '2026',
-    featured: true,
-    githubUrl: '#',
-    liveUrl: '#',
-    color: '#00d4aa',
-  },
-  {
-    id: 2,
-    title: 'DevTrack',
-    category: 'SaaS · Realtime',
-    description:
-      'Real-time project management SaaS with WebSocket-powered task boards, team dashboards, and Slack/Jira integrations.',
-    tech: ['Java', 'WebSockets', 'TypeScript', 'PostgreSQL', 'AWS'],
-    year: '2026',
-    featured: true,
-    githubUrl: '#',
-    liveUrl: '#',
-    color: '#ff6b35',
-  },
-  {
-    id: 3,
-    title: 'Neural Notes',
-    category: 'AI · Full Stack',
-    description:
-      'An AI-enhanced note-taking app with semantic search, auto-tagging, and a mind-map view. Spring Boot + React + OpenAI.',
-    tech: ['Spring AI', 'React', 'Three.js', 'OpenAI', 'MongoDB'],
-    year: '2026',
-    featured: true,
-    githubUrl: '#',
-    liveUrl: '#',
-    color: '#8b7aff',
-  },
-];
-
 const HABIT_TRACKER_PROJECT = {
   id: 'momentum-habit-tracker',
   title: 'Momentum Habit Tracker',
@@ -183,7 +141,7 @@ const HABIT_TRACKER_PROJECT = {
   color: '#00d4aa',
 };
 
-const projects = ref([HABIT_TRACKER_PROJECT, ...FALLBACK_PROJECTS]);
+const projects = ref([HABIT_TRACKER_PROJECT]);
 const loading = ref(false);
 const filter = ref('all');
 const query = ref('');

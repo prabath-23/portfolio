@@ -375,9 +375,7 @@ const SKILLS_MARQUEE = [
 ];
 
 const FEATURED = [
-  { title: 'Spring Commerce', cat: 'Full Stack', icon: 'cart', color: 'var(--yellow)', pill: 'yellow', desc: 'E-commerce platform with Spring Boot & React' },
-  { title: 'DevTrack', cat: 'SaaS', icon: 'clipboard', color: 'var(--pink)', pill: 'pink', desc: 'Real-time project management with WebSockets' },
-  { title: 'Neural Notes', cat: 'AI', icon: 'brain', color: 'var(--lavender)', pill: 'lav', desc: 'AI-enhanced notes with Spring AI + OpenAI' },
+  { title: 'Momentum Habit Tracker', cat: 'Productivity', icon: 'check', color: 'var(--teal)', pill: 'lime', desc: 'Habit and task tracking with daily targets and progress heatmaps' },
 ];
 
 const social = [
