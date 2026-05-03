@@ -1,0 +1,31 @@
+Prabath Sai
+Full-Stack Developer | Product-Minded Builder
+
+Portfolio: https://www.prabath.in
+GitHub: https://github.com/prabath-23
+LinkedIn: https://linkedin.com/in/prabath-sai/
+Email: hello@prabath.dev
+
+Profile
+Prabath Sai builds polished web products with strong frontend craft and reliable backend thinking. He works across React, Vue.js, Java, Spring Boot, and modern deployment workflows, with a focus on clear user flows, maintainable architecture, and product details that make software easier to trust.
+
+Featured Project
+Momentum Habit Tracker
+Live: https://momentum.prabath.in
+Problem solved: Habit tools often hide daily progress behind too many screens. Momentum keeps today’s action, target progress, and long-term consistency in one fast dashboard.
+Tech: React, Vite, Tailwind CSS
+Key features:
+- Daily habit and task check-ins
+- Target tracking for measurable routines
+- Week, month, and year progress heatmaps
+- Responsive dashboard UI
+
+Core Skills
+Frontend: React, Vue.js, Vite, Tailwind CSS, Three.js
+Backend: Java, Spring Boot, REST APIs, PostgreSQL, MySQL
+Delivery: Git, GitHub Pages, responsive QA, product-focused iteration
+
+Work Style
+- Turns ideas into usable product flows
+- Balances visual craft with maintainable code
+- Connects frontend speed with backend dependability

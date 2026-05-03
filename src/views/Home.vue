@@ -1,48 +1,52 @@
 <template>
   <div ref="rootEl" class="home">
     <section class="home-hero">
-      <div class="home-hero-inner parallax-item" data-parallax data-scroll="0.10" data-mouse="0.40">
+      <div class="home-hero-inner">
         <div class="hero-grid">
           <div class="hero-copy">
             <div class="hero-badges">
-              <FloatBadge icon="code" label="Product engineering" color="var(--lime)" />
-              <FloatBadge icon="globe" label="India" color="var(--sky)" />
-              <FloatBadge icon="check" label="Available" color="var(--yellow)" />
+              <FloatBadge icon="code" label="Full-stack developer" color="var(--lime)" />
+              <FloatBadge icon="briefcase" label="Product-minded builder" color="var(--yellow)" />
             </div>
 
+            <p class="hero-kicker">Prabath Sai</p>
             <h1 class="hero-title">
-              <span class="hero-name" data-text="Prabath">Prabath</span>
-              <span class="hero-role">
-                <Typewriter />
-              </span>
+              Building polished product experiences for the web.
             </h1>
 
             <p class="hero-lede">
-              <span class="hero-lede-strong">I build full-stack products that feel clear, fast, and dependable.</span>
-              I care about the details users notice and the engineering choices teams maintain.
-              <span class="hero-lede-muted">Frontend with Vue and React, backend with Java and Spring Boot, shaped by product thinking and practical delivery.</span>
+              Full-stack developer working across React, Vue, Java, and Spring Boot. I focus on
+              clear interfaces, dependable systems, and product details that make software easier
+              to use and maintain.
             </p>
 
             <div class="hero-actions">
               <RouterLink to="/projects" class="btn-yellow">View Projects</RouterLink>
-              <RouterLink :to="{ path: '/', hash: '#contact' }" class="btn-outline">Get in Touch</RouterLink>
+              <a class="btn-outline" href="/Prabath-Sai-Resume.txt" download>Download Resume</a>
+              <RouterLink :to="{ path: '/', hash: '#contact' }" class="btn-ghost">Contact Me</RouterLink>
             </div>
           </div>
 
-          <aside class="hero-dashboard" aria-label="Portfolio dashboard preview">
+          <aside class="hero-dashboard" aria-label="Momentum Habit Tracker project preview">
             <div class="dash-card dash-card--main">
               <div class="dash-eyebrow">
                 <span>Featured build</span>
                 <span class="dash-live">Live</span>
               </div>
               <h2>Momentum Habit Tracker</h2>
-              <p>A focused habit dashboard for daily check-ins, targets, and year-level progress heatmaps.</p>
+              <p>
+                A focused habit dashboard for daily check-ins, targets, and progress heatmaps
+                across week, month, and year views.
+              </p>
               <div class="dash-screenshot">
-                <img
-                  src="/assets/habit-tracker-dashboard.png"
-                  alt="Momentum Habit Tracker dashboard preview"
-                />
+                <img src="/assets/habit-tracker-dashboard.png" alt="Momentum Habit Tracker dashboard preview" />
               </div>
+            </div>
+
+            <div class="dash-card dash-card--metric">
+              <span class="dash-label">Role</span>
+              <strong>Builder</strong>
+              <span>Product + engineering</span>
             </div>
 
             <div class="dash-card dash-card--metric">
@@ -51,331 +55,215 @@
               <span>Vite + Tailwind</span>
             </div>
 
-            <div class="dash-card dash-card--metric">
-              <span class="dash-label">Focus</span>
-              <strong>Habits</strong>
-              <span>Daily momentum</span>
-            </div>
-
-            <RouterLink to="/projects" class="dash-card dash-card--cta">
-              <span>Open projects</span>
-              <strong>View work →</strong>
-            </RouterLink>
+            <a href="https://momentum.prabath.in" class="dash-card dash-card--cta">
+              <span>Open live app</span>
+              <strong>Launch Momentum</strong>
+            </a>
           </aside>
         </div>
       </div>
-
-      <div
-        class="parallax-item"
-        data-parallax
-        data-scroll="0.12"
-        data-mouse="0.25"
-        data-base-transform="translateX(-50%)"
-        :style="{
-          position: 'absolute',
-          bottom: '40px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '8px',
-          animation: 'fadeIn 1.5s ease 1.5s both',
-        }"
-      >
-        <span
-          :style="{
-            fontFamily: 'var(--mono)',
-            fontSize: 'var(--text-xs)',
-            letterSpacing: '0.2em',
-            color: 'var(--text-muted)',
-            textTransform: 'uppercase',
-          }"
-        >
-          scroll
-        </span>
-        <div :style="{ width: '1px', height: '48px', background: 'linear-gradient(to bottom, var(--yellow), transparent)' }" />
-      </div>
     </section>
 
-    <div class="home-marquee">
-      <div class="home-marquee-fade home-marquee-fade--left" />
-      <div class="home-marquee-fade home-marquee-fade--right" />
-      <div class="marquee-track">
-        <span v-for="(s, i) in [...SKILLS_MARQUEE, ...SKILLS_MARQUEE]" :key="i" class="pill" :class="s.color" :style="{ flexShrink: 0 }">
-          {{ s.label }}
-        </span>
-      </div>
-    </div>
-
-    <section id="about" class="home-section home-about">
-      <div class="home-inner">
-        <div
-          class="reveal"
-          data-id="about"
-          :class="{ visible: !!visible.about }"
-          :style="{ marginBottom: '48px' }"
-        >
-          <div class="section-chip">About Me</div>
-          <h2 class="section-title">
-            Who's <span class="grad-yellow">Prabath?</span>
-          </h2>
+    <section id="about" class="home-section">
+      <div class="home-inner split-section">
+        <div>
+          <div class="section-chip">Profile</div>
+          <h2 class="section-title">Developer craft, product judgment.</h2>
         </div>
-
-        <div
-          ref="bentoGridEl"
-          class="reveal reveal-delay-1 bento-grid"
-          data-id="bento"
-          :class="{ visible: !!visible.bento }"
-        >
-
-        <BentoCard size="sm" :accent="'var(--lime)'" class="glass-strong u-flex u-col u-justify-center u-items-center u-text-center u-p-5">
-          <div class="u-font-display u-fw-800 u-lh-1 text-7xl text-glow glow-lime" :style="{ color: 'var(--lime)' }">{{ yearsCoding }}+</div>
-          <div class="u-font-mono text-xs u-text-muted u-uppercase u-mt-2" :style="{ letterSpacing: '0.12em' }">
-            Years Coding
-          </div>
-        </BentoCard>
-
-        <BentoCard size="md" :accent="'var(--sky)'" class="glass-strong u-flex u-items-center u-gap-18 u-p-5">
-          <Icon name="globe" :size="48" color="var(--text-mid)" />
-          <div>
-            <div class="u-font-display u-fw-700 text-lg u-mb-1">India</div>
-            <div class="u-font-mono text-xs u-text-muted" :style="{ letterSpacing: '0.08em' }">Remote friendly <Icon name="check" :size="12" color="var(--lime)" /></div>
-          </div>
-        </BentoCard>
-
-        <BentoCard size="lg" :accent="'var(--yellow)'" class="glass-strong u-p-5 about-profile-card">
-          <p class="text-base u-fw-300 u-mb-6" :style="{ lineHeight: 1.75, color: '#b8cce0' }">
-            I build polished product interfaces and reliable Java services with the same bias:
-            make the path clear, keep the system fast, and give every interaction a reason.
+        <div class="section-copy">
+          <p>
+            Prabath Sai builds web products that feel clear, fast, and maintainable. He connects
+            UI polish with practical backend thinking so product ideas can move from concept to
+            usable software.
           </p>
-          <div class="u-flex u-wrap u-gap-2">
-            <span v-for="s in ['Java', 'Spring Boot', 'React', 'Three.js', 'PostgreSQL']" :key="s" class="pill yellow">{{ s }}</span>
-          </div>
-        </BentoCard>
-
-        <BentoCard size="sm" :accent="'var(--orange)'" class="glass-strong u-flex u-col u-justify-center u-items-center u-text-center u-p-5">
-          <div class="u-font-display u-fw-800 u-lh-1 text-7xl text-glow glow-orange" :style="{ color: 'var(--orange)' }">{{ projectsCount }}+</div>
-          <div class="u-font-mono text-xs u-text-muted u-uppercase u-mt-2" :style="{ letterSpacing: '0.12em' }">Projects</div>
-        </BentoCard>
-
-        <BentoCard size="md" :accent="'var(--lavender)'" class="glass-strong u-flex u-col u-gap-3 u-p-5">
-          <div class="u-font-display u-fw-700 text-lg">3D Web</div>
-          <div class="text-sm u-text-muted u-lh-16">
-            Building immersive experiences with Three.js.
-          </div>
-        </BentoCard>
-
-        <BentoCard size="sm" :accent="'var(--teal)'" class="glass-strong u-flex u-col u-justify-center u-items-center u-text-center u-p-5">
-          <div class="u-font-display u-fw-800 u-lh-1 text-5xl text-glow glow-yellow" :style="{ color: 'var(--teal)' }">⚡</div>
-          <div class="u-font-mono text-xs u-text-muted u-uppercase u-mt-2" :style="{ letterSpacing: '0.12em' }">
-            Fast<br />Shipping
-          </div>
-        </BentoCard>
-
-        <BentoCard size="md" :accent="'var(--sky)'" class="glass-strong u-flex u-col u-gap-2 u-p-5">
-          <div class="u-font-display u-fw-700 text-lg">What I care about</div>
-          <ul class="text-sm u-text-mid u-lh-17" :style="{ marginLeft: '18px' }">
-            <li>UX that feels effortless</li>
-            <li>Performance & reliability</li>
-            <li>Clean architecture</li>
+          <ul class="profile-list">
+            <li v-for="item in PROOF_POINTS" :key="item.value">
+              <strong>{{ item.value }}</strong>
+              <span>{{ item.label }}</span>
+            </li>
           </ul>
-        </BentoCard>
-
-        <BentoCard size="sm" :accent="'var(--lavender)'" class="glass-strong u-flex u-col u-justify-center u-items-center u-text-center u-p-5">
-          <div class="u-font-display u-fw-800 u-lh-1 text-5xl text-glow glow-lav" :style="{ color: 'var(--lavender)' }">★</div>
-          <div class="u-font-mono text-xs u-text-muted u-uppercase u-mt-2" :style="{ letterSpacing: '0.12em' }">
-            Detail<br />Oriented
-          </div>
-        </BentoCard>
-
-        <BentoCard size="md" :accent="'var(--lime)'" class="glass-strong u-flex u-col u-gap-3 u-p-5">
-          <div class="u-font-display u-fw-700 text-lg">Currently building</div>
-          <div class="text-sm u-text-mid u-lh-17">
-            A cleaner frontend-only portfolio with project routing, responsive cards, and a live habit tracker showcase.
-          </div>
-          <div class="u-flex u-wrap u-gap-2 u-mt-2">
-            <span class="pill lime">Vue</span>
-            <span class="pill yellow">Three.js</span>
-            <span class="pill sky">Spring</span>
-          </div>
-        </BentoCard>
-
-        <BentoCard size="sm" :accent="'var(--pink)'" class="glass-strong u-flex u-col u-justify-center u-items-center u-text-center u-p-5">
-          <div class="u-font-display u-fw-800 u-lh-1 text-5xl text-glow glow-pink" :style="{ color: 'var(--pink)' }">✦</div>
-          <div class="u-font-mono text-xs u-text-muted u-uppercase u-mt-2" :style="{ letterSpacing: '0.12em' }">
-            UI<br />Polish
-          </div>
-        </BentoCard>
-
-        <BentoCard size="sm" :accent="'var(--sky)'" class="glass-strong u-flex u-col u-justify-center u-items-center u-text-center u-p-5">
-          <div class="u-font-display u-fw-800 u-lh-1 text-5xl text-glow glow-sky" :style="{ color: 'var(--sky)' }">◎</div>
-          <div class="u-font-mono text-xs u-text-muted u-uppercase u-mt-2" :style="{ letterSpacing: '0.12em' }">
-            Pixel<br />Perfect
-          </div>
-        </BentoCard>
-        
-      </div>
+        </div>
       </div>
     </section>
 
     <section class="home-section home-projects">
       <div class="home-inner">
-      <div
-        class="reveal u-flex u-justify-between u-items-end u-wrap u-gap-5 u-mb-9"
-        data-id="projects-title"
-        :class="{ visible: !!visible['projects-title'] }"
-      >
-        <div>
-          <div class="section-chip">Featured Work</div>
-          <h2 class="section-title">Things I've <span class="grad-pink">Built</span></h2>
-        </div>
-        <RouterLink to="/projects" class="home-all-projects-link">All projects →</RouterLink>
-      </div>
-
-      <div class="grid-3">
-        <div
-          v-for="(p, i) in FEATURED"
-          :key="p.title"
-          class="proj-card reveal"
-          :class="[`reveal-delay-${i + 1}`, { visible: !!visible[`proj-${i}`] }]"
-          :data-id="`proj-${i}`"
-          :style="{ '--card-accent': p.color }"
-        >
-          <Icon :name="p.icon" :size="40" :color="p.color" :style="{ marginBottom: '16px' }" />
-          <div :style="{ marginBottom: '10px' }">
-            <span class="pill" :class="p.pill" :style="{ marginBottom: '10px', display: 'inline-block' }">{{ p.cat }}</span>
+        <div class="section-row section-row--project">
+          <div>
+            <div class="section-chip">Featured Project</div>
+            <h2 class="section-title">Momentum Habit Tracker</h2>
           </div>
-          <h3 :style="{ fontFamily: 'var(--display)', fontWeight: 700, fontSize: 'var(--text-2xl)', marginBottom: '10px', color: 'var(--text)' }">
-            {{ p.title }}
-          </h3>
-          <p :style="{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-mid)', marginBottom: '24px', fontWeight: 300 }">
-            {{ p.desc }}
-          </p>
-          <RouterLink to="/projects" class="home-project-link" :style="{ color: p.color }">
-            View project ↗
-          </RouterLink>
+          <RouterLink to="/projects" class="section-action">View case study</RouterLink>
+        </div>
+
+        <article class="feature-project-card">
+          <div class="feature-project-copy">
+            <span class="pill lime">Productivity · React</span>
+            <h3>Helping users keep daily progress visible and actionable.</h3>
+            <p>
+              Momentum turns habits and tasks into a compact dashboard with daily marking,
+              target tracking, and heatmaps that make consistency easy to scan.
+            </p>
+            <div class="feature-list">
+              <span v-for="feature in MOMENTUM_FEATURES" :key="feature">{{ feature }}</span>
+            </div>
+            <div class="project-links">
+              <a href="https://momentum.prabath.in">Live demo ↗</a>
+              <a href="https://github.com/prabath-23">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="feature-project-media">
+            <img src="/assets/habit-tracker-dashboard.png" alt="Momentum Habit Tracker dashboard preview" />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="home-inner">
+        <div class="section-row">
+          <div>
+            <div class="section-chip">Skills / Tech Stack</div>
+            <h2 class="section-title">Tools used to ship practical products.</h2>
+          </div>
+        </div>
+
+        <div class="stack-grid">
+          <div
+            v-for="group in STACK_GROUPS"
+            :key="group.title"
+            class="stack-card"
+            :style="{ '--stack-color': group.color }"
+          >
+            <Icon :name="group.icon" :size="26" :color="group.color" />
+            <h3>{{ group.title }}</h3>
+            <p>{{ group.copy }}</p>
+            <div class="u-flex u-wrap u-gap-1">
+              <span v-for="tech in group.tech" :key="tech" class="tag">{{ tech }}</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <section class="home-section">
+      <div class="home-inner">
+        <div class="section-row">
+          <div>
+            <div class="section-chip">Work Highlights</div>
+            <h2 class="section-title">How Prabath creates value.</h2>
+          </div>
+        </div>
+
+        <div class="highlights-grid">
+          <div v-for="item in WORK_HIGHLIGHTS" :key="item.title" class="highlight-card">
+            <span>{{ item.kicker }}</span>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.copy }}</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="home-section home-contact">
       <div class="home-inner">
-      <div
-        class="reveal glass contact-card"
-        data-id="contact"
-        :class="{ visible: !!visible.contact }"
-        :style="{
-          borderTop: '3px solid var(--yellow)',
-          position: 'relative',
-          overflow: 'hidden',
-        }"
-      >
-        <div :style="{ position: 'absolute', top: '-20%', right: '-5%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(255,229,0,0.03) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }" />
+        <div class="reveal glass contact-card visible" data-id="contact">
+          <div>
+            <div class="section-chip">Contact</div>
+            <h2 class="contact-title">Have a product, role, or idea worth building?</h2>
+            <p class="contact-copy">
+              Reach out for frontend, Java backend, full-stack product work, or engineering
+              conversations. I’m especially interested in teams that care about craft and momentum.
+            </p>
+            <a href="mailto:hello@prabath.dev" class="btn-yellow">Contact Me</a>
+          </div>
 
-        <div :style="{ position: 'relative' }">
-          <div class="section-chip" :style="{ marginBottom: '20px' }">Contact</div>
-          <h2
-            :style="{
-              fontFamily: 'var(--display)',
-              fontWeight: 800,
-              fontSize: 'clamp(36px,4.5vw,58px)',
-              letterSpacing: '-0.03em',
-              lineHeight: 1.05,
-              marginBottom: '20px',
-            }"
-          >
-            Got a cool<br />project? <span class="grad-yellow">Let's talk.</span>
-          </h2>
-          <p :style="{ fontSize: '15px', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '36px', fontWeight: 300 }">
-            Happy to connect about collaborations, product work, and engineering conversations.
-          </p>
-          <a href="mailto:hello@prabath.dev" class="btn-yellow">Say Hello</a>
+          <div class="contact-socials">
+            <a
+              v-for="s in social"
+              :key="s.label"
+              :href="s.url"
+              class="contact-social-link"
+              :aria-label="`Open ${s.label}`"
+            >
+              <div class="contact-social-name">
+                <Icon :name="s.icon" :size="18" :color="s.color" />
+                <span>{{ s.label }}</span>
+              </div>
+              <span class="contact-social-handle">{{ s.handle }} ↗</span>
+            </a>
+          </div>
         </div>
 
-        <div class="contact-socials">
-          <a
-            v-for="s in social"
-            :key="s.label"
-            :href="s.url"
-            class="contact-social-link"
-            :aria-label="`Open ${s.label}`"
-          >
-            <div :style="{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }">
-              <Icon :name="s.icon" :size="18" :color="s.color" />
-              <span :style="{ fontFamily: 'var(--display)', fontWeight: 600, fontSize: 'var(--text-lg)', whiteSpace: 'nowrap' }">{{ s.label }}</span>
-            </div>
-            <span class="contact-social-handle" :style="{ fontFamily: 'var(--mono)', fontSize: 'var(--text-xs)', color: 'var(--text-muted)', letterSpacing: '0.08em' }">
-              {{ s.handle }} ↗
-            </span>
-          </a>
+        <div class="site-footer">
+          <span>© 2026 Prabath Sai</span>
+          <div>
+            <span class="pill lime">Open to collaborate</span>
+            <span class="pill sky">Remote friendly</span>
+          </div>
         </div>
-      </div>
-
-      <div
-        :style="{
-          marginTop: '60px',
-          paddingTop: '28px',
-          borderTop: '1px solid var(--border)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '12px',
-        }"
-      >
-        <span :style="{ fontFamily: 'var(--mono)', fontSize: 'var(--text-xs)', color: 'var(--text-muted)', letterSpacing: '0.1em' }">
-          © 2026 Prabath
-        </span>
-        <div :style="{ display: 'flex', gap: '8px' }">
-          <span class="pill lime">Open to collaborate</span>
-          <span class="pill sky">Remote friendly</span>
-        </div>
-      </div>
       </div>
     </section>
   </div>
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
-import { animateNumber, prefersReducedMotion } from '../util';
-
-import BentoCard from '../components/BentoCard.vue';
 import FloatBadge from '../components/FloatBadge.vue';
-import Typewriter from '../components/Typewriter.vue';
 import Icon from '../components/Icon.vue';
 
-const rootEl = ref(null);
-const bentoGridEl = ref(null);
-const visible = reactive({});
-const yearsCoding = ref(0);
-const projectsCount = ref(0);
-let countersStarted = false;
-let cancelYears;
-let cancelProjects;
-
-const SKILLS_MARQUEE = [
-  { label: 'Java', color: 'orange' },
-  { label: 'Spring Boot', color: 'lime' },
-  { label: 'React', color: 'sky' },
-  { label: 'Three.js', color: 'pink' },
-  { label: 'TypeScript', color: 'sky' },
-  { label: 'PostgreSQL', color: 'lav' },
-  { label: 'MySQL', color: 'orange' },
-  { label: 'Docker', color: 'sky' },
-  { label: 'AWS', color: 'yellow' },
-  { label: 'Git', color: 'orange' },
-  { label: 'REST APIs', color: 'lime' },
-  { label: 'WebSockets', color: 'pink' },
-  { label: 'Figma', color: 'lav' },
-  { label: 'Vite', color: 'yellow' },
-  { label: 'Node.js', color: 'lime' },
+const PROOF_POINTS = [
+  { value: 'Full-stack', label: 'Frontend polish plus backend reliability.' },
+  { value: 'Product-first', label: 'Features shaped around clarity and user intent.' },
+  { value: 'Ship-ready', label: 'Responsive, deployable, maintainable builds.' },
 ];
 
-const FEATURED = [
-  { title: 'Momentum Habit Tracker', cat: 'Productivity', icon: 'check', color: 'var(--teal)', pill: 'lime', desc: 'Habit and task tracking with daily targets and progress heatmaps' },
+const MOMENTUM_FEATURES = [
+  'Daily habit check-ins',
+  'Target tracking',
+  'Week, month, and year heatmaps',
+  'Responsive dashboard UI',
+];
+
+const STACK_GROUPS = [
+  {
+    title: 'Frontend',
+    icon: 'code',
+    color: 'var(--sky)',
+    copy: 'Interfaces that are responsive, fast, and easy to scan.',
+    tech: ['React', 'Vue.js', 'Vite', 'Tailwind CSS', 'Three.js'],
+  },
+  {
+    title: 'Backend',
+    icon: 'briefcase',
+    color: 'var(--lime)',
+    copy: 'Services built around dependable APIs and maintainable structure.',
+    tech: ['Java', 'Spring Boot', 'REST APIs', 'PostgreSQL', 'MySQL'],
+  },
+  {
+    title: 'Delivery',
+    icon: 'check',
+    color: 'var(--yellow)',
+    copy: 'Practical tooling for iteration, deployment, and collaboration.',
+    tech: ['Git', 'GitHub Pages', 'Vercel-style workflows', 'Responsive QA'],
+  },
+];
+
+const WORK_HIGHLIGHTS = [
+  {
+    kicker: '01',
+    title: 'Product flow',
+    copy: 'Turns rough ideas into clear screens, states, and actions.',
+  },
+  {
+    kicker: '02',
+    title: 'UI craft',
+    copy: 'Keeps interfaces polished, responsive, and maintainable.',
+  },
+  {
+    kicker: '03',
+    title: 'Full-stack delivery',
+    copy: 'Connects frontend behavior with dependable backend APIs.',
+  },
 ];
 
 const social = [
@@ -383,195 +271,14 @@ const social = [
   { label: 'LinkedIn', url: 'https://linkedin.com/in/prabath-sai/', handle: 'linkedin.com/in/prabath-sai', icon: 'linkedin', color: 'var(--sky)' },
   { label: 'Instagram', url: 'https://instagram.com/prabath.chowdary', handle: '@prabath.chowdary', icon: 'instagram', color: 'var(--pink)' },
 ];
-
-let obs;
-let parallaxRaf;
-let parallaxEls = [];
-let parallaxOnScroll;
-let parallaxOnPointerMove;
-let parallaxOnResize;
-let targetScrollY = 0;
-let currentScrollY = 0;
-let targetMouseX = 0;
-let targetMouseY = 0;
-let currentMouseX = 0;
-let currentMouseY = 0;
-let bentoResizeObs;
-let bentoRaf;
-
-const initBentoStagger = async () => {
-  await nextTick();
-  const grid = bentoGridEl.value;
-  if (!grid) return;
-  const children = Array.from(grid.children || []);
-  children.forEach((el, i) => {
-    el.style.setProperty('--reveal-i', String(i));
-  });
-};
-
-const startBentoCounters = () => {
-  if (countersStarted) return;
-  countersStarted = true;
-
-  if (prefersReducedMotion()) {
-    yearsCoding.value = 4;
-    projectsCount.value = 5;
-    return;
-  }
-
-  cancelYears = animateNumber({
-    from: 0,
-    to: 4,
-    durationMs: 900,
-    onUpdate: (v) => (yearsCoding.value = Math.round(v)),
-  });
-  cancelProjects = animateNumber({
-    from: 0,
-    to: 5,
-    durationMs: 900,
-    onUpdate: (v) => (projectsCount.value = Math.round(v)),
-  });
-};
-
-const updateBentoCell = () => {
-  const grid = bentoGridEl.value;
-  if (!grid) return;
-
-  const styles = window.getComputedStyle(grid);
-  const cols = Number(styles.getPropertyValue('--bento-cols')) || 6;
-  const gap = Number.parseFloat(styles.getPropertyValue('--bento-gap')) || 12;
-  const width = grid.clientWidth || 0;
-  if (!width) return;
-
-  const cell = (width - (cols - 1) * gap) / cols;
-  grid.style.setProperty('--bento-cell', `${Math.max(1, cell).toFixed(2)}px`);
-};
-
-const scheduleBentoCellUpdate = () => {
-  if (bentoRaf) return;
-  bentoRaf = requestAnimationFrame(() => {
-    bentoRaf = null;
-    updateBentoCell();
-  });
-};
-
-const initParallax = (root) => {
-  if (!root) return;
-  if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return;
-
-  parallaxEls = Array.from(root.querySelectorAll('[data-parallax]'));
-  if (!parallaxEls.length) return;
-
-  const schedule = () => {
-    if (parallaxRaf) return;
-    parallaxRaf = requestAnimationFrame(() => {
-      parallaxRaf = null;
-
-      currentScrollY += (targetScrollY - currentScrollY) * 0.08;
-      currentMouseX += (targetMouseX - currentMouseX) * 0.10;
-      currentMouseY += (targetMouseY - currentMouseY) * 0.10;
-
-      for (const el of parallaxEls) {
-        const scrollSpeed = Number(el.dataset.scroll || 0);
-        const mouseStrength = Number(el.dataset.mouse || 0);
-        const rotateDeg = Number(el.dataset.rotate || 0);
-        const scaleAmt = Number(el.dataset.scale || 0);
-        const base = el.dataset.baseTransform || '';
-
-        const tx = currentMouseX * mouseStrength * 28;
-        const ty = -currentScrollY * scrollSpeed + currentMouseY * mouseStrength * 18;
-        const rot = currentMouseX * rotateDeg;
-        const s = 1 + (Math.abs(currentMouseX) + Math.abs(currentMouseY)) * 0.35 * scaleAmt;
-
-        el.style.transform = `${base} translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0) rotate(${rot.toFixed(2)}deg) scale(${s.toFixed(4)})`;
-      }
-
-      if (
-        Math.abs(targetScrollY - currentScrollY) > 0.5 ||
-        Math.abs(targetMouseX - currentMouseX) > 0.002 ||
-        Math.abs(targetMouseY - currentMouseY) > 0.002
-      ) {
-        schedule();
-      }
-    });
-  };
-
-  parallaxOnScroll = () => {
-    targetScrollY = window.scrollY || 0;
-    schedule();
-  };
-
-  parallaxOnPointerMove = (e) => {
-    if (window.matchMedia?.('(hover: none)')?.matches) return;
-    const w = window.innerWidth || 1;
-    const h = window.innerHeight || 1;
-    targetMouseX = (e.clientX / w - 0.5) * 2;
-    targetMouseY = (e.clientY / h - 0.5) * 2;
-    schedule();
-  };
-
-  parallaxOnResize = () => schedule();
-
-  window.addEventListener('scroll', parallaxOnScroll, { passive: true });
-  window.addEventListener('pointermove', parallaxOnPointerMove, { passive: true });
-  window.addEventListener('resize', parallaxOnResize, { passive: true });
-
-  targetScrollY = window.scrollY || 0;
-  schedule();
-};
-
-onMounted(() => {
-  const root = rootEl.value;
-  if (!root) return;
-
-  initParallax(root);
-  initBentoStagger();
-  scheduleBentoCellUpdate();
-
-  if (bentoGridEl.value && 'ResizeObserver' in window) {
-    bentoResizeObs = new ResizeObserver(() => scheduleBentoCellUpdate());
-    bentoResizeObs.observe(bentoGridEl.value);
-  } else {
-    window.addEventListener('resize', scheduleBentoCellUpdate, { passive: true });
-  }
-
-  obs = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        const id = e.target.dataset.id;
-        if (id) visible[id] = true;
-        if (id === 'bento') startBentoCounters();
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  root.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
-});
-
-onBeforeUnmount(() => {
-  if (obs) obs.disconnect();
-  cancelYears?.();
-  cancelProjects?.();
-  if (bentoResizeObs) bentoResizeObs.disconnect();
-  else window.removeEventListener('resize', scheduleBentoCellUpdate);
-  if (bentoRaf) cancelAnimationFrame(bentoRaf);
-  if (parallaxRaf) cancelAnimationFrame(parallaxRaf);
-  if (parallaxOnScroll) window.removeEventListener('scroll', parallaxOnScroll);
-  if (parallaxOnPointerMove) window.removeEventListener('pointermove', parallaxOnPointerMove);
-  if (parallaxOnResize) window.removeEventListener('resize', parallaxOnResize);
-  parallaxEls.forEach((el) => {
-    if (el?.style) el.style.transform = '';
-  });
-  parallaxEls = [];
-});
 </script>
 
 <style scoped>
 .home {
   position: relative;
   z-index: 10;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .home-inner {
@@ -579,15 +286,25 @@ onBeforeUnmount(() => {
   margin: 0 auto;
 }
 
+.home-section {
+  padding: 108px 52px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  scroll-margin-top: 96px;
+}
+
+.home-section + .home-section {
+  padding-top: 116px;
+}
+
 .home-hero {
-  min-height: 100vh;
+  min-height: 92vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 120px 52px 80px;
+  align-items: center;
+  padding: 116px 52px 72px;
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  margin-bottom: -1px;
 }
 
 .home-hero::before {
@@ -597,37 +314,43 @@ onBeforeUnmount(() => {
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(6,10,16,0.90) 0%, rgba(6,10,16,0.72) 44%, rgba(6,10,16,0.36) 100%),
-    linear-gradient(180deg, rgba(6,10,16,0.28) 0%, rgba(6,10,16,0.78) 100%);
+    linear-gradient(90deg, rgba(6,10,16,0.93) 0%, rgba(6,10,16,0.72) 46%, rgba(6,10,16,0.40) 100%),
+    linear-gradient(180deg, rgba(6,10,16,0.22) 0%, rgba(6,10,16,0.82) 100%);
 }
 
 .home-hero::after {
   content: '';
   position: absolute;
-  left: 52px;
-  right: 52px;
+  left: 0;
+  right: 0;
   bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.20), transparent);
+  height: 220px;
+  z-index: 1;
   pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(6,10,16,0) 0%,
+    rgba(6,10,16,0.58) 58%,
+    rgba(6,10,16,0.98) 100%
+  );
 }
 
 .home-hero-inner {
   width: min(1180px, 100%);
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(420px, 0.74fr);
-  gap: clamp(34px, 5vw, 78px);
+  grid-template-columns: minmax(0, 0.92fr) minmax(380px, 0.74fr);
+  gap: clamp(46px, 6vw, 88px);
   align-items: center;
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 660px;
 }
 
 .hero-badges,
@@ -638,20 +361,43 @@ onBeforeUnmount(() => {
 }
 
 .hero-badges {
-  margin-bottom: 30px;
-  animation: floatUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+  margin-bottom: 24px;
 }
 
-.hero-actions {
-  animation: floatUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.44s both;
+.hero-kicker {
+  font-family: var(--mono);
+  color: var(--yellow);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(40px, 4.65vw, 62px);
+  font-weight: 800;
+  line-height: 1.02;
+  color: var(--text);
+  letter-spacing: 0;
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+.hero-lede {
+  max-width: 620px;
+  margin-bottom: 30px;
+  font-size: clamp(15px, 1vw, 18px);
+  line-height: 1.72;
+  color: rgba(232,239,250,0.92);
+  font-weight: 400;
 }
 
 .hero-dashboard {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-auto-rows: 112px;
+  grid-auto-rows: 108px;
   gap: 12px;
-  animation: floatUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s both;
 }
 
 .dash-card {
@@ -685,7 +431,7 @@ onBeforeUnmount(() => {
 .dash-card--main {
   grid-column: span 6;
   grid-row: span 4;
-  padding: 28px;
+  padding: 26px;
   display: flex;
   flex-direction: column;
 }
@@ -707,30 +453,30 @@ onBeforeUnmount(() => {
 }
 
 .dash-card--main h2 {
-  max-width: 420px;
+  max-width: 380px;
   font-family: var(--display);
-  font-size: clamp(36px, 4.4vw, 58px);
+  font-size: clamp(32px, 3.8vw, 48px);
   font-weight: 800;
-  line-height: 0.96;
-  letter-spacing: 0;
-  margin-bottom: 18px;
+  line-height: 1.02;
+  margin: 0 0 14px;
 }
 
 .dash-card--main p {
-  max-width: 440px;
+  max-width: 430px;
   color: var(--text-mid);
-  line-height: 1.75;
+  line-height: 1.65;
   font-weight: 300;
-  margin-bottom: 22px;
+  margin: 0 0 18px;
 }
 
 .dash-screenshot {
+  display: block;
   margin-top: auto;
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 12px;
   background: rgba(238,247,255,0.96);
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
 }
 
 .dash-screenshot img {
@@ -744,7 +490,8 @@ onBeforeUnmount(() => {
 .dash-card--metric,
 .dash-card--cta {
   grid-column: span 2;
-  padding: 18px;
+  min-width: 0;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -762,7 +509,7 @@ onBeforeUnmount(() => {
 .dash-card--metric strong,
 .dash-card--cta strong {
   font-family: var(--display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   line-height: 1;
   color: var(--text);
 }
@@ -770,6 +517,7 @@ onBeforeUnmount(() => {
 .dash-card--metric > span:last-child {
   color: var(--text-muted);
   font-size: var(--text-sm);
+  line-height: 1.35;
 }
 
 .dash-card--cta {
@@ -783,137 +531,363 @@ onBeforeUnmount(() => {
   color: #080a0f;
 }
 
-.home-marquee {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 20px 0;
-  overflow: hidden;
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.section-row {
+  display: block;
+  margin-bottom: 34px;
+}
+
+.section-row--project {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: flex-end;
+}
+
+.section-row--project .section-title {
+  max-width: none;
+}
+
+.section-action {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(0,214,126,0.28);
+  border-radius: 8px;
+  background: rgba(0,214,126,0.08);
+  color: var(--lime);
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform .2s, border-color .2s, background .2s;
+}
+
+.section-action:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0,214,126,0.48);
+  background: rgba(0,214,126,0.13);
+}
+
+.section-copy {
+  color: rgba(214,225,241,0.88);
+  font-size: var(--text-base);
+  line-height: 1.72;
+  width: min(720px, 100%);
+  margin-left: auto;
+  padding: 26px;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(10,15,22,0.88), rgba(7,10,15,0.78));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.profile-list {
+  display: grid;
+  gap: 14px;
+  margin: 24px 0 0;
+  list-style: none;
+}
+
+.profile-list li {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+.profile-list strong {
+  color: var(--text);
+  font-family: var(--display);
+  font-size: var(--text-lg);
+}
+
+.profile-list span {
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.proof-card,
+.stack-card,
+.highlight-card,
+.feature-project-card {
+  background: linear-gradient(180deg, rgba(20,26,34,0.74), rgba(8,12,18,0.78));
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+}
+
+.proof-card {
+  padding: 18px;
+}
+
+.proof-card strong {
+  display: block;
+  font-family: var(--display);
+  color: var(--text);
+  font-size: var(--text-xl);
+  margin-bottom: 8px;
+}
+
+.proof-card span {
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.feature-project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1fr);
+  gap: 28px;
+  padding: 28px;
+  border-color: rgba(0,212,170,0.22);
+}
+
+.feature-project-copy h3 {
+  margin: 20px 0 14px;
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.05;
+}
+
+.feature-project-copy p {
+  color: rgba(214,225,241,0.88);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.feature-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.feature-list span {
+  color: var(--text-mid);
+  padding-left: 18px;
   position: relative;
 }
 
-.home-marquee-fade {
+.feature-list span::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 60px;
-  z-index: 2;
-  pointer-events: none;
-}
-.home-marquee-fade--left {
   left: 0;
-  background: linear-gradient(to right, var(--bg), transparent);
-}
-.home-marquee-fade--right {
-  right: 0;
-  background: linear-gradient(to left, var(--bg), transparent);
+  top: 0.72em;
 }
 
-.home-section {
-  padding: 100px 52px 80px;
+.feature-project-media {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(238,247,255,0.96);
 }
 
-.home-projects {
-  padding: 80px 52px;
+.feature-project-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.stack-grid,
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stack-card,
+.highlight-card {
+  padding: 26px;
+}
+
+.stack-card {
+  position: relative;
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--stack-color) 28%, rgba(255,255,255,0.12));
+  background:
+    radial-gradient(260px circle at 18% 0%, color-mix(in srgb, var(--stack-color) 18%, transparent), transparent 68%),
+    linear-gradient(180deg, rgba(20,26,34,0.78), rgba(8,12,18,0.82));
+}
+
+.stack-card::before {
+  content: '';
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--stack-color), transparent);
+  opacity: 0.75;
+}
+
+.stack-card h3,
+.highlight-card h3 {
+  font-family: var(--display);
+  color: var(--text);
+  font-size: var(--text-2xl);
+  line-height: 1.1;
+  margin: 16px 0 12px;
+}
+
+.stack-card p,
+.highlight-card p {
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.highlight-card {
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.highlight-card span {
+  font-family: var(--mono);
+  color: var(--yellow);
+  letter-spacing: 0.14em;
+}
+
+.contact-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.contact-copy {
+  color: var(--text-mid);
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  margin-bottom: 30px;
+}
+
+.contact-social-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.contact-social-name span {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+
+.site-footer {
+  margin-top: 48px;
+  padding-top: 24px;
   border-top: 1px solid var(--border);
-}
-
-.home-contact {
-  border-top: 1px solid var(--border);
-}
-
-.home-all-projects-link,
-.home-project-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--text-muted);
   font-family: var(--mono);
   font-size: var(--text-xs);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: color 0.25s, transform 0.2s, gap 0.2s;
-  cursor: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  letter-spacing: 0.1em;
 }
 
-.home-all-projects-link {
-  color: var(--text-muted);
-}
-.home-all-projects-link:hover,
-.home-all-projects-link:focus-visible {
-  color: var(--yellow);
+.site-footer > div {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.home-project-link:hover,
-.home-project-link:focus-visible {
-  transform: translateY(-1px);
-}
+@media (max-width: 900px) {
+  .hero-grid,
+  .split-section,
+  .feature-project-card,
+  .stack-grid,
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
 
-#about,
-#contact {
-  scroll-margin-top: 96px;
+  .section-row {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .section-row--project {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-dashboard {
+    grid-auto-rows: 96px;
+  }
+
+  .dash-card--main {
+    grid-column: span 6;
+  }
+
+  .profile-list li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
 }
 
 @media (max-width: 768px) {
   .home-hero {
     min-height: auto;
-    padding: 116px 24px 64px;
+    padding: 112px 24px 58px;
   }
-  .home-hero::before {
-    background:
-      linear-gradient(180deg, rgba(6,10,16,0.90) 0%, rgba(6,10,16,0.70) 45%, rgba(6,10,16,0.94) 100%);
-  }
-  .home-hero::after {
-    left: 24px;
-    right: 24px;
-  }
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .hero-badges {
-    gap: 8px;
-    margin-bottom: 24px;
-  }
+
   .hero-title {
-    font-size: clamp(54px, 15vw, 72px);
-    margin-bottom: 22px;
+    font-size: clamp(38px, 11vw, 56px);
   }
-  .hero-role {
-    font-size: clamp(22px, 7vw, 30px);
-    margin-top: 10px;
-  }
-  .hero-lede {
-    font-size: var(--text-lg);
-    line-height: 1.75;
-    margin-bottom: 28px;
-  }
+
   .hero-actions > * {
-    flex: 1 1 160px;
+    flex: 1 1 180px;
   }
-  .hero-dashboard {
-    grid-auto-rows: 96px;
-    gap: 10px;
-  }
-  .dash-card--main {
-    padding: 22px;
-    grid-row: span 4;
-  }
-  .dash-card--main h2 {
-    font-size: 34px;
-  }
+
   .dash-card--metric,
   .dash-card--cta {
     grid-column: span 3;
-    padding: 16px;
   }
-  .dash-card--metric strong,
-  .dash-card--cta strong {
-    font-size: var(--text-xl);
-  }
+
   .home-section {
-    padding: 56px 24px;
+    padding: 72px 24px;
   }
-  .home-projects {
-    padding: 56px 24px;
+
+  .feature-project-card {
+    padding: 20px;
+  }
+
+  .feature-project-media {
+    min-height: 240px;
   }
 }
 </style>

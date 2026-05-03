@@ -7,7 +7,7 @@
         <div class="page-title-row">
           <div>
             <h1 class="section-title">Projects</h1>
-            <p class="page-subtitle">A small set of things I’ve built across realtime systems, product interfaces, and interactive UI.</p>
+            <p class="page-subtitle">Selected product work from Prabath Sai, focused on clear user flows, practical engineering, and polished delivery.</p>
           </div>
         </div>
 
@@ -94,6 +94,19 @@
             {{ p.description }}
           </p>
 
+          <div class="project-detail-grid">
+            <div>
+              <span>Problem solved</span>
+              <p>{{ p.problem }}</p>
+            </div>
+            <div>
+              <span>Key features</span>
+              <ul>
+                <li v-for="feature in p.features" :key="feature">{{ feature }}</li>
+              </ul>
+            </div>
+          </div>
+
           <div class="u-flex u-wrap u-gap-1 u-mb-7">
             <span v-for="t in p.tech" :key="t" class="tag">{{ t }}</span>
           </div>
@@ -131,11 +144,19 @@ const HABIT_TRACKER_PROJECT = {
   title: 'Momentum Habit Tracker',
   category: 'Productivity · React',
   description:
-    'A polished habit and task tracker with daily marking, targets, and week, month, and year progress heatmaps.',
+    'A habit and task dashboard designed to make daily consistency visible, measurable, and easy to maintain.',
+  problem:
+    'Habit tools often hide progress behind too many screens. Momentum keeps today’s action, target progress, and long-term consistency in one fast dashboard.',
+  features: [
+    'Daily habit and task check-ins',
+    'Target tracking for measurable routines',
+    'Week, month, and year progress heatmaps',
+    'Responsive interface built for quick scanning',
+  ],
   tech: ['React', 'Vite', 'Tailwind CSS'],
   year: '2026',
   featured: true,
-  githubUrl: '#',
+  githubUrl: 'https://github.com/prabath-23',
   liveUrl: import.meta.env.VITE_HABIT_TRACKER_URL || 'https://momentum.prabath.in',
   liveTarget: '_self',
   color: '#00d4aa',
