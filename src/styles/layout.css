@@ -1,0 +1,173 @@
+/* Utility layout & typography classes (use instead of inline styles) */
+
+:root {
+  --u-0: 0px;
+  --u-1: 4px;
+  --u-2: 8px;
+  --u-3: 12px;
+  --u-4: 16px;
+  --u-5: 20px;
+  --u-6: 24px;
+  --u-7: 32px;
+  --u-8: 40px;
+  --u-9: 48px;
+  --u-10: 56px;
+  --u-11: 64px;
+  --u-12: 80px;
+  --u-13: 100px;
+  --u-14: 120px;
+}
+
+/* Display */
+.u-block { display: block !important; }
+.u-inline { display: inline !important; }
+.u-inline-block { display: inline-block !important; }
+.u-flex { display: flex !important; }
+.u-inline-flex { display: inline-flex !important; }
+.u-grid { display: grid !important; }
+.u-hidden { display: none !important; }
+
+/* Position */
+.u-relative { position: relative !important; }
+.u-absolute { position: absolute !important; }
+.u-fixed { position: fixed !important; }
+.u-sticky { position: sticky !important; }
+.u-inset-0 { inset: 0 !important; }
+.u-top-0 { top: 0 !important; }
+.u-right-0 { right: 0 !important; }
+.u-bottom-0 { bottom: 0 !important; }
+.u-left-0 { left: 0 !important; }
+.u-z-0 { z-index: 0 !important; }
+.u-z-1 { z-index: 1 !important; }
+.u-z-5 { z-index: 5 !important; }
+.u-z-10 { z-index: 10 !important; }
+
+/* Flex */
+.u-row { flex-direction: row !important; }
+.u-col { flex-direction: column !important; }
+.u-wrap { flex-wrap: wrap !important; }
+.u-nowrap { flex-wrap: nowrap !important; }
+
+.u-items-start { align-items: flex-start !important; }
+.u-items-center { align-items: center !important; }
+.u-items-end { align-items: flex-end !important; }
+
+.u-justify-start { justify-content: flex-start !important; }
+.u-justify-center { justify-content: center !important; }
+.u-justify-end { justify-content: flex-end !important; }
+.u-justify-between { justify-content: space-between !important; }
+
+.u-text-left { text-align: left !important; }
+.u-text-center { text-align: center !important; }
+.u-text-right { text-align: right !important; }
+
+/* Text transform */
+.u-uppercase { text-transform: uppercase !important; }
+.u-lowercase { text-transform: lowercase !important; }
+.u-capitalize { text-transform: capitalize !important; }
+
+/* Text color */
+.u-text { color: var(--text) !important; }
+.u-text-mid { color: var(--text-mid) !important; }
+.u-text-muted { color: var(--text-muted) !important; }
+
+/* Text glow */
+.text-glow {
+  --glow: var(--yellow);
+  text-shadow:
+    0 0 16px color-mix(in srgb, var(--glow) 55%, transparent),
+    0 0 44px color-mix(in srgb, var(--glow) 22%, transparent);
+}
+.glow-yellow { --glow: var(--yellow); }
+.glow-lime { --glow: var(--lime); }
+.glow-teal { --glow: var(--teal); }
+.glow-sky { --glow: var(--sky); }
+.glow-orange { --glow: var(--orange); }
+.glow-pink { --glow: var(--pink); }
+.glow-lav { --glow: var(--lavender); }
+
+/* Fonts */
+.u-font-display { font-family: var(--display) !important; }
+.u-font-body { font-family: var(--body) !important; }
+.u-font-mono { font-family: var(--mono) !important; }
+
+.u-fw-300 { font-weight: 300 !important; }
+.u-fw-400 { font-weight: 400 !important; }
+.u-fw-500 { font-weight: 500 !important; }
+.u-fw-600 { font-weight: 600 !important; }
+.u-fw-700 { font-weight: 700 !important; }
+.u-fw-800 { font-weight: 800 !important; }
+
+/* Gap */
+.u-gap-0 { gap: var(--u-0) !important; }
+.u-gap-1 { gap: var(--u-1) !important; }
+.u-gap-2 { gap: var(--u-2) !important; }
+.u-gap-3 { gap: var(--u-3) !important; }
+.u-gap-4 { gap: var(--u-4) !important; }
+.u-gap-5 { gap: var(--u-5) !important; }
+.u-gap-6 { gap: var(--u-6) !important; }
+.u-gap-7 { gap: var(--u-7) !important; }
+.u-gap-8 { gap: var(--u-8) !important; }
+.u-gap-9 { gap: var(--u-9) !important; }
+.u-gap-10 { gap: 10px !important; }
+.u-gap-12 { gap: 12px !important; }
+.u-gap-14 { gap: 14px !important; }
+.u-gap-18 { gap: 18px !important; }
+.u-gap-36 { gap: 36px !important; }
+
+/* Padding */
+.u-p-0 { padding: var(--u-0) !important; }
+.u-p-1 { padding: var(--u-1) !important; }
+.u-p-2 { padding: var(--u-2) !important; }
+.u-p-3 { padding: var(--u-3) !important; }
+.u-p-4 { padding: var(--u-4) !important; }
+.u-p-5 { padding: var(--u-5) !important; }
+.u-p-6 { padding: var(--u-6) !important; }
+.u-p-7 { padding: var(--u-7) !important; }
+.u-p-8 { padding: var(--u-8) !important; }
+.u-px-4 { padding-left: var(--u-4) !important; padding-right: var(--u-4) !important; }
+.u-px-6 { padding-left: var(--u-6) !important; padding-right: var(--u-6) !important; }
+.u-py-4 { padding-top: var(--u-4) !important; padding-bottom: var(--u-4) !important; }
+.u-py-6 { padding-top: var(--u-6) !important; padding-bottom: var(--u-6) !important; }
+
+/* Margin */
+.u-m-0 { margin: var(--u-0) !important; }
+.u-mt-2 { margin-top: var(--u-2) !important; }
+.u-mt-3 { margin-top: var(--u-3) !important; }
+.u-mt-4 { margin-top: var(--u-4) !important; }
+.u-mt-6 { margin-top: var(--u-6) !important; }
+.u-mt-1 { margin-top: var(--u-1) !important; }
+.u-mb-1 { margin-bottom: var(--u-1) !important; }
+.u-mb-2 { margin-bottom: var(--u-2) !important; }
+.u-mb-3 { margin-bottom: var(--u-3) !important; }
+.u-mb-4 { margin-bottom: var(--u-4) !important; }
+.u-mb-6 { margin-bottom: var(--u-6) !important; }
+.u-mb-7 { margin-bottom: var(--u-7) !important; }
+.u-mb-9 { margin-bottom: var(--u-9) !important; }
+
+/* Sizing */
+.u-w-100 { width: 100% !important; }
+.u-h-100 { height: 100% !important; }
+.u-min-w-0 { min-width: 0 !important; }
+
+/* Line height */
+.u-lh-1 { line-height: 1 !important; }
+.u-lh-11 { line-height: 1.1 !important; }
+.u-lh-16 { line-height: 1.6 !important; }
+.u-lh-17 { line-height: 1.7 !important; }
+.u-lh-18 { line-height: 1.8 !important; }
+.u-lh-19 { line-height: 1.9 !important; }
+
+/* Type scale (moved from global.css) */
+.text-xs   { font-size: var(--text-xs) !important; }
+.text-sm   { font-size: var(--text-sm) !important; }
+.text-base { font-size: var(--text-base) !important; }
+.text-lg   { font-size: var(--text-lg) !important; }
+.text-xl   { font-size: var(--text-xl) !important; }
+.text-2xl  { font-size: var(--text-2xl) !important; }
+.text-3xl  { font-size: var(--text-3xl) !important; }
+.text-4xl  { font-size: var(--text-4xl) !important; }
+.text-5xl  { font-size: var(--text-5xl) !important; }
+.text-6xl  { font-size: var(--text-6xl) !important; }
+.text-7xl  { font-size: var(--text-7xl) !important; }
+.text-8xl  { font-size: var(--text-8xl) !important; }

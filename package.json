@@ -1,0 +1,22 @@
+{
+  "name": "prabath-portfolio-v2-frontend-only",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "three": "^0.162.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "vite": "^5.1.4",
+    "eslint": "^8.57.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "eslint-plugin-vue": "^9.23.0"
+  }
+}
