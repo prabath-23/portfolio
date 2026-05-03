@@ -300,8 +300,6 @@
             :key="s.label"
             :href="s.url"
             class="contact-social-link"
-            target="_blank"
-            rel="noopener noreferrer"
             :aria-label="`Open ${s.label}`"
           >
             <div :style="{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }">
@@ -385,8 +383,7 @@ const FEATURED = [
 const social = [
   { label: 'GitHub', url: 'https://github.com/prabath-23', handle: 'github.com/prabath-23', icon: 'github', color: 'var(--text-mid)' },
   { label: 'LinkedIn', url: 'https://linkedin.com/in/prabath-sai/', handle: 'linkedin.com/in/prabath-sai', icon: 'linkedin', color: 'var(--sky)' },
-  { label: 'Twitter/X', url: 'https://x.com/prabathdev', handle: '@prabathdev', icon: 'twitter', color: 'var(--sky)' },
-  { label: 'Dev.to', url: 'https://dev.to/prabath', handle: 'dev.to/prabath', icon: 'devto', color: 'var(--lime)' },
+  { label: 'Instagram', url: 'https://instagram.com/prabath.chowdary', handle: '@prabath.chowdary', icon: 'instagram', color: 'var(--pink)' },
 ];
 
 let obs;

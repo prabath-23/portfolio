@@ -178,7 +178,7 @@ const HABIT_TRACKER_PROJECT = {
   year: '2026',
   featured: true,
   githubUrl: '#',
-  liveUrl: import.meta.env.VITE_HABIT_TRACKER_URL || 'http://localhost:5173',
+  liveUrl: import.meta.env.VITE_HABIT_TRACKER_URL || 'https://momentum.prabath.in',
   liveTarget: '_self',
   color: '#00d4aa',
 };
