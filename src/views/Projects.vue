@@ -63,7 +63,7 @@
           v-for="(p, i) in filtered"
           :key="p.id || p.title"
           class="card project-card"
-          :class="{ 'project-card--spotlight': p.id === 'momentum-habit-tracker' }"
+          :class="{ 'project-card--spotlight': p.id === 'momentum-habit-tracker', 'project-card--nexperf': p.id === 'nexperf' }"
           :style="{
             '--accent': p.color,
             animation: `riseUp 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s both`,
@@ -74,6 +74,7 @@
               <span class="badge" :style="{ borderColor: 'rgba(255,255,255,0.10)', color: p.color }">{{ p.category }}</span>
               <span v-if="p.featured" class="badge featured">Featured</span>
               <span v-if="p.id === 'momentum-habit-tracker'" class="badge live">Live</span>
+              <span v-if="p.id === 'nexperf'" class="badge new-badge">New ✦</span>
             </div>
             <span :style="{ fontFamily: 'var(--mono)', fontSize: 'var(--text-xs)', color: 'var(--text-muted)', letterSpacing: '0.12em' }">
               {{ p.year }}
@@ -162,7 +163,29 @@ const HABIT_TRACKER_PROJECT = {
   color: '#00d4aa',
 };
 
-const projects = ref([HABIT_TRACKER_PROJECT]);
+const NEXPERF_PROJECT = {
+  id: 'nexperf',
+  title: 'NexPerf',
+  category: 'DevTools · Spring Boot',
+  description:
+    'A full-stack API performance intelligence platform for monitoring, benchmarking, and optimizing backend services in real time.',
+  problem:
+    'Engineers lack visibility into API latency patterns and regression points without heavy infrastructure. NexPerf provides a lightweight performance dashboard that plugs into any Spring Boot service.',
+  features: [
+    'Real-time API latency with p50 / p95 / p99 percentiles',
+    'Throughput and error rate monitoring dashboards',
+    'Core Web Vitals integration for frontend observability',
+    'Performance regression alerts with baseline comparison',
+  ],
+  tech: ['React', 'Java', 'Spring Boot', 'WebSockets', 'PostgreSQL', 'Redis'],
+  year: '2026',
+  featured: true,
+  githubUrl: 'https://github.com/prabath-23',
+  liveUrl: null,
+  color: '#e17055',
+};
+
+const projects = ref([NEXPERF_PROJECT, HABIT_TRACKER_PROJECT]);
 const loading = ref(false);
 const filter = ref('all');
 const query = ref('');
